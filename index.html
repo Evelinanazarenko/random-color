@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's find an awesome color</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container text-center mt-5">
+      <h2>Hello everyone</h2>
+      <h1>Lets find a color for your special tasks</h1>
+      <p>Click here to get random color with a hex-code</p>
+      <button class="btn btn-success">Get color</button>
+      <div class="d-flex justify-content-center">
+        <div class="square border m-3" id="color"></div>
+        <div class="square border m-3" id="color"></div>
+        <div class="square border m-3" id="color"></div>
+        <div class="square border m-3" id="color"></div>
+      </div>
+    </div>
+    <script>
+      function randomColor(event) {
+        event.preventDefault;
+        let a = Math.round(Math.random() * 1000000);
+        let color = `#${a}`;
+        document.getElementById("color").style.backgroundColor = color;
+      }
+
+      let button = document.querySelector("button");
+      button.addEventListener("click", randomColor);
+    </script>
+  </body>
+</html>
