@@ -22,32 +22,35 @@
       <div class="d-flex justify-content-center mt-5">
         <div>
           <p id="colorCode"></p>
-          <div class="square border m-3" id="color"></div>
+          <div class="square m-3" id="color"></div>
         </div>
         <div>
           <p id="colorCode"></p>
-          <div class="square border m-3" id="color"></div>
+          <div class="square m-3" id="color"></div>
         </div>
         <div>
           <p id="colorCode"></p>
-          <div class="square border m-3" id="color"></div>
+          <div class="square m-3" id="color"></div>
         </div>
         <div>
           <p id="colorCode"></p>
-          <div class="square border m-3" id="color"></div>
+          <div class="square m-3" id="color"></div>
         </div>
       </div>
     </div>
     <script>
       function randomColor(event) {
         let sections = [
-          (a = Math.round(Math.random() * 1000000)),
-          (b = Math.round(Math.random() * 1000000)),
-          (c = Math.round(Math.random() * 1000000)),
-          (d = Math.round(Math.random() * 1000000)),
+          (a = Math.round(Math.random() * 1000000).toString(16)),
+          (b = Math.round(Math.random() * 1000000).toString(16)),
+          (c = Math.round(Math.random() * 1000000).toString(16)),
+          (d = Math.round(Math.random() * 1000000).toString(16)),
         ];
 
         sections.forEach((el, index) => {
+          while (el.length < 6) {
+            el = "0" + el;
+          }
           let color = `#${el}`;
           document.querySelectorAll("#color")[index].style.backgroundColor =
             color;
