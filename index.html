@@ -19,7 +19,7 @@
       <h1>Lets find a color for your special tasks</h1>
       <p>Click here to get random color with a hex-code</p>
       <button class="btn btn-success">Get color</button>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mt-5">
         <div class="square border m-3" id="color"></div>
         <div class="square border m-3" id="color"></div>
         <div class="square border m-3" id="color"></div>
@@ -28,10 +28,18 @@
     </div>
     <script>
       function randomColor(event) {
-        event.preventDefault;
-        let a = Math.round(Math.random() * 1000000);
-        let color = `#${a}`;
-        document.getElementById("color").style.backgroundColor = color;
+        let sections = [
+          (a = Math.round(Math.random() * 1000000)),
+          (b = Math.round(Math.random() * 1000000)),
+          (c = Math.round(Math.random() * 1000000)),
+          (d = Math.round(Math.random() * 1000000)),
+        ];
+
+        sections.forEach((el, index) => {
+          let color = `#${el}`;
+          document.querySelectorAll("#color")[index].style.backgroundColor =
+            color;
+        });
       }
 
       let button = document.querySelector("button");
